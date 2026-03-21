@@ -399,27 +399,56 @@
             }
             
             .mobile-nav-toggle {
-                display: block;
-                z-index: 100;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(15, 23, 42, 0.8);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 12px;
+                width: 50px;
+                height: 50px;
+                color: white;
+                cursor: pointer;
+                z-index: 1000;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            }
+
+            .mobile-nav-toggle:hover {
+                background: rgba(15, 23, 42, 0.95);
+                transform: scale(1.05);
+                border-color: var(--accent-gold);
+            }
+
+            .mobile-nav-toggle i {
+                font-size: 1.4rem;
             }
 
             .nav {
-                display: none; /* Hide by default */
-                padding: 20px;
-                border-radius: 24px;
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 85px;
+                left: 20px;
+                right: 20px;
                 background: rgba(15, 23, 42, 0.98);
                 backdrop-filter: blur(25px);
-                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto 30px auto;
-                flex-direction: column;
-                gap: 8px;
-                position: absolute;
-                top: 250px; /* Adjust based on header height */
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 99;
+                padding: 30px 20px;
+                border-radius: 24px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                gap: 12px;
+                animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            @keyframes slideDown {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
             }
             
             .nav.active {
@@ -427,10 +456,22 @@
             }
             
             .nav a {
-                padding: 14px 20px;
-                font-size: 1rem;
+                padding: 16px 20px;
+                font-size: 1.1rem;
                 width: 100%;
                 text-align: center;
+                border-radius: 16px;
+                background: rgba(255, 255, 255, 0.03);
+            }
+
+            .nav a:hover {
+                background: rgba(255, 255, 255, 0.1);
+                transform: translateX(5px);
+            }
+
+            .nav a.active {
+                background: var(--secondary-blue);
+                box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
             }
             
             .content {
@@ -471,7 +512,7 @@
             }
 
             .nav {
-                top: 220px;
+                top: 80px;
             }
             
             .feature-card {
