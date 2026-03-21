@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Logo.png">
+    <title>Sunnah Way - Make Sunnah Your Lifestyle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-gold: #f59e0b;
+            --deep-blue: #0f172a;
+            --light-blue: #dbeafe;
+            --white: #ffffff;
+            --gray-100: #f8fafc;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-blue) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 80px 0 60px;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--secondary-blue));
+            border-radius: 2px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.1s both;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-gold);
+        }
+        
+        .logo img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        
+        .header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-blue) 100%);
+            -webkit-background-clip: text; 
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .header p {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: var(--gray-300);
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .product-hunt-badge {
+            text-align: center;
+        }
+        
+        .product-hunt-badge img {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-hunt-badge img:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Navigation */
+        .nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 8px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
+            width: fit-content;
+        }
+        
+        .nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 25px;
+            background: transparent;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+            font-size: 0.9rem;
+            position: relative;
+            white-space: nowrap;
+            border: none;
+            min-width: 90px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+        
+        .nav a.active {
+            background: var(--secondary-blue);
+            color: var(--white);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+        }
+        
+        /* Content Sections */
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .content h2 {
+            color: var(--primary-blue);
+            margin-bottom: 24px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--secondary-blue));
+            border-radius: 2px;
+        }
+        
+        .content h3 {
+            color: var(--secondary-blue);
+            margin: 32px 0 16px 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .content h3 i {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+        }
+        
+        .content p {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        
+        .content ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+        
+        .content li {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        /* Feature Cards */
+        .app-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-100) 100%);
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--secondary-blue));
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--secondary-blue);
+        }
+        
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .feature-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            border-radius: 20px;
+            padding: 32px;
+            margin: 32px 0;
+            border-left: 6px solid var(--accent-gold);
+            box-shadow: var(--shadow-md);
+        }
+
+        .title {
+
+            border-radius: 50px;
+        }
+        
+        .contact-info h3 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .contact-info h3 i {
+            color: var(--accent-gold);
+        }
+        
+        .contact-info a {
+            color: var(--secondary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: var(--accent-gold);
+        }
+        
+        /* Download CTA Section */
+        .download-cta {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            border-radius: 24px;
+            padding: 48px;
+            margin: 32px 0;
+            color: var(--white);
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+        
+        .download-cta h2 {
+            color: var(--white);
+            margin-bottom: 32px;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .download-cta h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--white));
+            border-radius: 2px;
+        }
+        
+        .download-cta p {
+            color: var(--light-blue);
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .download-cta .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--accent-gold);
+            color: var(--deep-blue);
+            padding: 16px 32px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--accent-gold);
+        }
+        
+        .download-cta .download-btn:hover {
+            background: transparent;
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .download-cta .download-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Store Button Group */
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+        .store-btn i {
+            font-size: 1.2rem;
+        }
+        .store-btn.google-play {
+            background: var(--accent-gold);
+            color: var(--deep-blue);
+            border-color: var(--accent-gold);
+        }
+        .store-btn.google-play:hover {
+            background: transparent;
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        .store-btn.app-store {
+            background: var(--white);
+            color: var(--deep-blue);
+            border-color: var(--white);
+        }
+        .store-btn.app-store:hover {
+            background: transparent;
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: var(--gray-300);
+            margin-top: 60px;
+            padding: 32px 0;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .header {
+                padding: 60px 0 40px;
+            }
+            
+            .mobile-nav-toggle {
+                display: block;
+                z-index: 100;
+            }
+
+            .nav {
+                display: none; /* Hide by default */
+                padding: 20px;
+                border-radius: 24px;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(25px);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto 30px auto;
+                flex-direction: column;
+                gap: 8px;
+                position: absolute;
+                top: 320px; /* Adjust based on header height */
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 99;
+            }
+            
+            .nav.active {
+                display: flex;
+            }
+            
+            .nav a {
+                padding: 14px 20px;
+                font-size: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .content {
+                padding: 32px 24px;
+                margin-bottom: 24px;
+            }
+            
+            .app-features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .feature-card {
+                padding: 24px 20px;
+            }
+            
+            .contact-info {
+                padding: 24px 20px;
+            }
+            
+            .download-cta {
+                padding: 32px 24px;
+            }
+
+            .store-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            .store-btn {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .content {
+                padding: 24px 20px;
+            }
+
+            .nav {
+                top: 280px;
+            }
+            
+            .feature-card {
+                padding: 20px 16px;
+            }
+            
+            .download-cta {
+                padding: 24px 20px;
+            }
+        }
+
+        /* Premium Section Styling */
+        .premium-friends-section {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            text-align: center;
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .premium-friends-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .premium-friends-section h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #fff, #f59e0b);
+            -webkit-background-clip: text; 
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .premium-friends-section p {
+            font-size: 1.25rem;
+            color: var(--light-blue);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .streak-visual {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .streak-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 180px;
+            transition: transform 0.3s ease;
+        }
+
+        .streak-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .streak-card i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+        }
+
+        .streak-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .streak-card .label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--light-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="Logo.png" alt="Sunnah Way Logo">
+            </div>
+            <h1>Sunnah Way</h1>
+            <p>Your daily companion for prayer times, duas, and sunnah tracking</p>
+        </div>
+        
+        <button class="mobile-nav-toggle" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="download.html">Download</a>
+            <a href="privacy.html">Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="support.html">Support</a>
+        </nav>
+
+        <div class="download-cta">
+            <h2>Download Sunnah Way</h2>
+            <p>Install the app on your device. Smart redirect ensures the right store for you.</p>
+            <div class="store-buttons">
+                <a href="download.html" class="store-btn google-play">
+                    <i class="fab fa-google-play"></i>
+                    Get on Google Play
+                </a>
+                <a href="download.html" class="store-btn app-store">
+                    <i class="fab fa-apple"></i>
+                    Get on App Store
+                </a>
+            </div>
+        </div>
+
+        <!-- Premium Feature Section -->
+        <div class="premium-friends-section">
+            <h2>Friends Streaks</h2>
+            <p>Connect with your loved ones and motivate each other. Compete in friendly streaks for Salah and Sunnah habits.</p>
+            <div class="streak-visual">
+                <div class="streak-card">
+                    <i class="fas fa-fire"></i>
+                    <span class="number">15</span>
+                    <span class="label">Salah Streak</span>
+                </div>
+                <div class="streak-card">
+                    <i class="fas fa-star"></i>
+                    <span class="number">8</span>
+                    <span class="label">Sunnah Streak</span>
+                </div>
+                <div class="streak-card">
+                    <i class="fas fa-user-friends"></i>
+                    <span class="number">5</span>
+                    <span class="label">Active Friends</span>
+                </div>
+            </div>
+            <a href="pricing.html" class="store-btn google-play" style="padding: 16px 40px; border-radius: 50px;">
+                <i class="fas fa-crown"></i> Get Premium
+            </a>
+        </div>
+
+        <div class="content">
+            <h2>Welcome to Sunnah Way</h2>
+            <p>Transform your daily Islamic practice with Sunnah Way - the comprehensive app designed to strengthen your connection with Allah through prayer, remembrance, and daily spiritual growth.</p>
+            
+            <h3><i class="fas fa-layer-group"></i> Features</h3>
+            <div class="app-features">
+                <div class="feature-card">
+                    <i class="fas fa-mosque"></i>
+                    <h4>Accurate Prayer Times</h4>
+                    <p>Get precise prayer times based on your location with multiple calculation methods.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h4>Salah Tracker</h4>
+                    <p>Stay on top of your prayers with our intuitive and rewarding tracking system.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-pray"></i>
+                    <h4>Daily Duas</h4>
+                    <p>Receive beautiful daily duas with English translations and reminders.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-book-open"></i>
+                    <h4>Daily Hadith & Ayah</h4>
+                    <p>Get daily inspiration from authentic sources to enrich your knowledge.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-star"></i>
+                    <h4>Sunnah Tracking</h4>
+                    <p>Track your daily sunnah practices and build consistent spiritual habits.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-moon"></i>
+                    <h4>Dark & Light Theme</h4>
+                    <p>Customize your experience with beautiful, eye-friendly themes for any time of day.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-trophy"></i>
+                    <h4>Islamic Challenges</h4>
+                    <p>Participate in unique challenges to strengthen your faith and knowledge.</p>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <h3><i class="fas fa-envelope"></i> Contact Information</h3>
+                <p><strong>Support Email:</strong> info@intellibud.org</p>
+                <p><strong>Privacy Policy:</strong> <a href="privacy.html">View Privacy Policy</a></p>
+                <p><strong>Support:</strong> <a href="support.html">Get Support</a></p>
+            </div>
+        </div>
+        
+        
+        
+        <div class="footer">
+            <p>&copy; 2026 Sunnah Way. All rights reserved.</p>
+        </div>
+    </div>
+
+    
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const nav = document.querySelector('.nav');
+
+        if (mobileMenuBtn && nav) {
+            mobileMenuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (nav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    nav.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
