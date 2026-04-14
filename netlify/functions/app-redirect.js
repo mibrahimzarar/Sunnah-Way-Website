@@ -4,8 +4,8 @@ exports.handler = async (event, context) => {
   
   // Configuration
   const config = {
-    android_app_id: 'com.sunnahdaily.sunnahdaily9jr75at',
-    ios_app_id: '6748527320',
+    android_app_id: 'com.sunnahway.app',
+    ios_app_id: '6761305443',
     website_url: 'https://sunnah-way-app.netlify.app',
     fallback_url: 'https://sunnah-way-app.netlify.app/index.html'
   };
@@ -15,11 +15,11 @@ exports.handler = async (event, context) => {
   try {
     // Check for Android devices
     if (userAgent.toLowerCase().includes('android')) {
-      redirectUrl = `https://play.google.com/store/apps/details?id=${config.android_app_id}&pcampaignid=web_share`;
+      redirectUrl = `https://play.google.com/store/apps/details?id=${config.android_app_id}`;
     }
     // Check for iOS devices (iPhone, iPad, iPod)
     else if (/iPhone|iPad|iPod/i.test(userAgent)) {
-      redirectUrl = `https://apps.apple.com/pk/app/sunnah-daily/id${config.ios_app_id}`;
+      redirectUrl = `https://apps.apple.com/us/app/sunnah-way/id${config.ios_app_id}`;
     }
     // Check for other mobile devices
     else if (/Mobile|Tablet|BlackBerry|Opera Mini/i.test(userAgent)) {
@@ -99,10 +99,10 @@ exports.handler = async (event, context) => {
         <h1>Sunnah Way</h1>
         <p>Choose your platform to download the app:</p>
         <div class="buttons">
-            <a href="https://play.google.com/store/apps/details?id=${config.android_app_id}&pcampaignid=web_share" class="btn">
+            <a href="https://play.google.com/store/apps/details?id=${config.android_app_id}" class="btn">
                 📱 Android App
             </a>
-            <a href="https://apps.apple.com/pk/app/sunnah-daily/id${config.ios_app_id}" class="btn">
+            <a href="https://apps.apple.com/us/app/sunnah-way/id${config.ios_app_id}" class="btn">
                 🍎 iOS App
             </a>
             <a href="${config.website_url}" class="btn">
