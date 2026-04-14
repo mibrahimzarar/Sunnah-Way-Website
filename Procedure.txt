@@ -17,10 +17,10 @@ How to Deploy:
 1. Push all files to your Git repository
 2. Import/deploy the repository on Vercel
 3. Vercel will pick up `vercel.json` and `api/` routes automatically
-4. Test the redirect at: https://<your-domain>/app-redirect.php
+4. Test the redirect at: https://sunnah-way-web.vercel.app/app-redirect.php
 
 QR Code Setup:
-Generate a QR code pointing to: https://<your-domain>/app-redirect.php
+Generate a QR code pointing to: https://sunnah-way-web.vercel.app/app-redirect.php
 
 The URL will redirect users to:
 - Android users -> Google Play Store

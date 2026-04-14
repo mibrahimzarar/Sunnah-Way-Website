@@ -1,6 +1,6 @@
 module.exports = (req, res) => {
   const userAgent = req.headers["user-agent"] || "";
-  const host = req.headers.host || "sunnah-way-app.vercel.app";
+  const host = req.headers.host || "sunnah-way-web.vercel.app";
   const protocol = req.headers["x-forwarded-proto"] || "https";
   const websiteUrl = `${protocol}://${host}`;
 
