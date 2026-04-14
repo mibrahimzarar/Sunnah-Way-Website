@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/app-redirect.php",
+      "destination": "/api/app-redirect"
+    },
+    {
+      "source": "/redirect.php",
+      "destination": "/api/app-redirect"
+    }
+  ]
+}
